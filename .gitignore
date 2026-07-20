@@ -1,0 +1,23 @@
+# === 构建产物 ===
+build/
+dist/
+__pycache__/
+*.pyc
+
+# === 二进制/安装包 ===
+*.exe
+*.msi
+*.rar
+
+# === 敏感/运行时文件 ===
+auth.db
+server_config.json
+rsa_private.pem.enc
+
+# === 工具/临时文件 ===
+rclone.1
+rclone_help.txt
+git-log.txt
+.merkle-snapshot.json
+.arts/
+20260708/

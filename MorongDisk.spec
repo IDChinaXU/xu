@@ -1,0 +1,58 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+excludes = [
+    'unittest', 'xmlrpc', 'pydoc', 'doctest',
+    'distutils', 'lib2to3', 'setuptools', 'pip', 'pkg_resources',
+    'gzip', 'html', 'sqlite3',
+    'multiprocessing', 'concurrent', 'asyncio',
+    'xml.dom', 'xml.sax', 'xml.etree',
+    'dbm',
+    'curses', 'tty', 'pty',
+    'venv', 'ensurepip', 'zoneinfo',
+    'test', 'tests', 'idlelib', 'pydoc_data',
+    'IPython', 'jupyter', 'notebook',
+    'numpy', 'pandas', 'matplotlib', 'scipy',
+    'PIL', 'cv2', 'requests_oauthlib',
+    'sphinx', 'docutils', 'pygments',
+    'win32com', 'pythoncom', 'pywintypes',
+    'tornado', 'gevent', 'zmq',
+]
+
+a = Analysis(
+    ['alist_drive.py'],
+    pathex=[],
+    binaries=[],
+    datas=[],
+    hiddenimports=['watchdog.observers.polling', 'watchdog.events', 'cryptography.hazmat.primitives.asymmetric.rsa', 'cryptography.hazmat.primitives.asymmetric.padding', 'cryptography.hazmat.primitives.hashes', 'cryptography.hazmat.primitives.serialization'],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=excludes,
+    noarchive=False,
+    optimize=2,
+)
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='MorongDisk',
+    icon='morong.ico',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=True,
+    upx=False,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,
+    disable_windowed_traceback=True,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    version='version_client.txt',
+    manifest='MorongDisk.manifest',
+)
